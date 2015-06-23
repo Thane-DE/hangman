@@ -2,36 +2,46 @@
 #include <stdio.h>
 #include <string.h>
 
-void new_Word(){
+void new_Word() {
 	printf("Please enter your new word: ");
-	char player_number_char[2];
-	fgets(player_number_char,2,stdin);
-	int player_number = atoi(player_number_char[1]);
+	char secret_word[128];
+	fgets(secret_word, 128, stdin);
 
-	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	printf("\nConfirm: The new word is: %s?\n", secret_word);
+	printf("Yes: Y, No: N - Confirm: ");
+	//I somehow had to print some space o_O
+	printf(
+			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 }
-void test_value(char test_char){
-
-}
-void reset(){
-
-}
-void do_round(){
+void test_value(char test_char) {
 
 }
+void reset() {
 
-int main(void){
+}
+void do_round() {
+
+}
+
+int main(void) {
 	printf("Welcome to hangman!\n");
 	printf("----------------------\n");
-	printf("How many players/teams are there (maximum of 4)?");
+	printf("How many players/teams are there (maximum of 4): ");
 
-	char player_number_char[2];
-	fgets(player_number_char,2,stdin);
-	int player_number = atoi(player_number_char[1]);
-	if()
+	//Gets a the player number
+	char player_number_buf[2];
+	char player_number;
+	fgets(player_number_buf, 2, stdin);
+	player_number = atoi(player_number_buf);
 
-	printf("Confirmed: There are %i players.\n",player_number);
-
+	if (player_number < 1 || player_number > 4) {
+		//If the user entered a non-valid number
+		printf("\nERROR: %i is not a valid player size\n", player_number);
+		return -1;
+		exit(1);
+	}
+	printf("\nConfirmed: There are %i players.\n", player_number);
 	new_Word();
+
 	return 0;
 }
